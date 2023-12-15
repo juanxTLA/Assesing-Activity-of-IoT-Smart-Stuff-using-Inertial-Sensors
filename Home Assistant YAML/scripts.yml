@@ -1,0 +1,11 @@
+check_for_data_update:
+  alias: Check for data update
+  sequence:
+  - variables:
+      t: '{{ states.sensor.cup_volume.last_updated }}'
+  - condition: template
+    value_template: '{{ as_timestamp(now()) - as_timestamp(t) > 60 }}'
+  - service: mqtt.publish
+    data:
+      topic: SMARTCUP/volume
+      payload: '0'

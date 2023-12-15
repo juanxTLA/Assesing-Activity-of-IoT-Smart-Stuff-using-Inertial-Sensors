@@ -1,0 +1,10 @@
+domains:
+  - juantarrat.duckdns.org
+token: 613c708e-ace3-4d78-8f02-bce8dfcd7546
+aliases: []
+lets_encrypt:
+  accept_terms: true
+  algo: secp384r1
+  certfile: fullchain.pem
+  keyfile: privkey.pem
+seconds: 300

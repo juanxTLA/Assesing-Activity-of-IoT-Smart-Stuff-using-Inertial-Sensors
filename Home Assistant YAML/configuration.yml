@@ -1,0 +1,34 @@
+# Loads default set of integrations. Do not remove.
+default_config:
+
+# Load frontend themes from the themes folder
+frontend:
+  themes: !include_dir_merge_named themes
+
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml
+
+mqtt:
+  sensor:
+    - name: "cup.volume"
+      unique_id: "cupVolume"
+      state_topic: "SMARTCUP/volume"
+      unit_of_measurement: "ml"
+
+    - name: "cup.time"
+      unique_id: "cupTime"
+      state_topic: "SMARTCUP/values"
+      unit_of_measurement: "seconds"
+      value_template: "{{value_json.time}}"
+
+    - name: "cup.angle"
+      unique_id: "cupAngle"
+      state_topic: "SMARTCUP/values"
+      unit_of_measurement: "degrees"
+      value_template: "{{value_json.angle}}"
+
+    - name: "Daily Volume"
+      unique_id: "dayVol"
+      state_topic: "SMARTCUP/dailyVolume"
+      unit_of_measurement: "ml"

@@ -1,0 +1,9 @@
+type: custom:mini-graph-card
+entities:
+  - sensor.cup_volume
+name: Volume per Sip (Last Hour)
+hours_to_show: 1
+points_per_hour: 60
+show:
+  graph: bar
+  ylabel: true
